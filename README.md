@@ -13,7 +13,6 @@ Weather GPT is a web application that provides weather information for different
 ### Prerequisites
 
 - Web browser (Google Chrome, Firefox, etc.)
-- Text editor or integrated development environment (IDE)
 
 ### Installation
 
