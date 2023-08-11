@@ -13,3 +13,35 @@ font-weight: 400;
     list-style: none;
     
 }
+
+
+.more-details{
+    font-size: 1.2rem;
+    color:rgb(8, 61, 165);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+.more-details:hover{
+    color: white;
+}
+.more-details-extra{
+    font-size: 1.2rem;
+    color: rgb(8, 61, 165);
+    font-weight: 400;
+    text-decoration: none;
+}
+.more-details-extra:hover{
+    color: white;
+}
+
+button:hover{
+    color: white;
+
+}
+
+
+#hidden{
+    display: none;
+}

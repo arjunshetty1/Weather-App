@@ -1,12 +1,82 @@
+
+//----------Main Search--------------------------------------
+
+const main_search = document.getElementById('main_search');
+const submit_btn = document.getElementById('submit_btn');
+const main_search_max_temp = document.getElementById('main_search_max_temp');
+const main_search_min_temp = document.getElementById('main_search_min_temp');
+const main_search_sunrise = document.getElementById('main_search_sunrise');
+const main_search_sunset = document.getElementById('main_search_sunset');
+const main_search_wind_degrees = document.getElementById('main_search_wind_degrees');
+const main_search_speed = document.getElementById('main_search_speed');
+const textInput = document.getElementById('textInput');
+const main_search_humidity = document.getElementById('main_search_humidity');
+const main_search_feels_like = document.getElementById('main_search_feels_like');
+const city_name = document.getElementById('city_name');
+const main_weather = document.getElementById('hidden');
+
+
+
+async function result(city) {
+    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '12f33d9d95msh13bac54dd679c2cp151602jsn589175e76510',
+            'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+        main_search.innerHTML = result.temp + '°C';
+        main_search_feels_like.innerHTML = 'Feels like' + '<b>' + result.feels_like +'</b>';
+        main_search_humidity.innerHTML = 'Humidity of <b>' + result.humidity + '</b>';
+        main_search_max_temp.innerHTML = 'Max Temp ' + '<b>' + result.max_temp + '</b>';
+        main_search_min_temp.innerHTML = 'Min Temp ' + '<b>' +  result.min_temp + '</b>';
+        main_search_sunrise.innerHTML = 'Sunrise at ' + '<b>' + result.sunrise + '</b>';
+        main_search_sunset.innerHTML = 'Sunset at ' + '<b>' + result.sunset + '</b>';
+        main_search_wind_degrees.innerHTML = 'Wind in Degrees ' + '<b>' + result.wind_degrees + '</b>';
+        main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed + '</b>';
+        city_name.innerHTML = city;
+        
+        main_weather.style.display = 'block'
+
+    }
+
+    catch (error) {
+        console.error(error);
+
+    }
+
+}
+
+
+submit_btn.addEventListener('click', () => {
+    result(textInput.value);
+})
+
+
+
+
+
+
+
+
+
+
+
 //-------------------Mumbai-----------------------------------------
 
-const mumbai_pct = document.getElementById('mumbai_pct');
 const mumbai_max_temp = document.getElementById('mumbai_max_temp');
 const mumbai_min_temp = document.getElementById('mumbai_min_temp');
+const mumbai_pct = document.getElementById('mumbai_pct');
 
 
 (async () => {
-    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=mumbai';
+    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=dubai';
     const options = {
         method: 'GET',
         headers: {
@@ -43,7 +113,7 @@ const bangalore_min_temp = document.getElementById('bangalore_min_temp');
 
 
 (async () => {
-    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=bangalore';
+    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=usa';
     const options = {
         method: 'GET',
         headers: {
@@ -81,7 +151,7 @@ const delhi_min_temp = document.getElementById('delhi_min_temp');
 
 
 (async () => {
-    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=delhi';
+    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=india';
     const options = {
         method: 'GET',
         headers: {

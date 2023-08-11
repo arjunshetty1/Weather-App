@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="https://www.windy.com/?20.266,69.223,5,m:d1haiho">Source</a>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Top Cities
@@ -34,17 +34,18 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Bangalore</a></li>
                             <li><a class="dropdown-item" href="#">Delhi</a></li>
-                            <!-- <li><hr class="dropdown-divider"></li> -->
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Mumbai</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Docs</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" id="textInput" type="search" placeholder="Search Places"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" id="submit_btn" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -58,11 +59,38 @@
     <div class="container">
 
         <main>
+
+
+            <div class="main-weather-hidden" id="hidden">
+
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                        <div class="card-header py-3 text-bg-primary border-primary">
+                            <h4 class="my-0 fw-normal" id="city_name">Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title" id="main_search">Loading<small
+                                    class="text-body-secondary fw-light">°C</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li id="main_search_feels_like">10</li>
+                                <li id="main_search_max_temp">10</li>
+                                <li id="main_search_humidity">10</li>
+                                <li id="main_search_min_temp">15</li>
+                                <li id="main_search_sunrise">00</li>
+                                <li id="main_search_sunset">01</li>
+                                <li id="main_search_wind_degrees">20</li>
+                                <li id="main_search_speed">70</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details">View More</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Mumbai</h4>
+                            <h4 class="my-0 fw-normal">Dubai</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"><span id="mumbai_pct">Loading</span><small
@@ -79,7 +107,7 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">View More</button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
@@ -89,7 +117,7 @@
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Bangalore</h4>
+                            <h4 class="my-0 fw-normal">USA</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"><span id="bangalore_pct">Loading</span><small
@@ -106,14 +134,14 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">View More</button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Delhi</h4>
+                            <h4 class="my-0 fw-normal">India</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title"><span id="delhi_pct">Loading</span><small
@@ -130,13 +158,13 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">View More</button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="display-6 text-center mb-4">Other Cities</h2>
+            <!-- <h2 class="display-6 text-center mb-4">Other Cities</h2>
             <br>
 
             <div class="table-responsive">
@@ -367,7 +395,7 @@
 
                     </tbody>
                 </table>
-            </div>
+            </div> -->
         </main>
 
     </div>
