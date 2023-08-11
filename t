@@ -1,13 +1,25 @@
-<tr>
-    <th scope="row" class="text-start">Permissions</th>
-    <td> 43<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-    <td> 32<svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
-  </tr>
+Cloud pct
+Feels like
+Humidity
+Max temp
+Min temp
+Sunrise
+Sunset
+Temp
+Wind degrees
+Wind speed
+
+
+
+<th style="width: 22%;">Cloud pct</th>
+<th style="width: 22%;">Feels like</th>
+<th style="width: 22%;">Humidity</th>
+<th style="width: 22%;">Max temp</th>
+<th style="width: 22%;">Min temp</th>
+<th style="width: 22%;">Sunrise</th>
+<th style="width: 22%;">Sunset</th>
+<th style="width: 22%;">Temp</th>
+<th style="width: 22%;">Wind Degrees</th>
+<th style="width: 22%;">Wind Speed</th>
+
+

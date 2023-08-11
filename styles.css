@@ -1,0 +1,15 @@
+.th-content{
+font-size: 15px;
+font-weight: 400;
+}
+
+.text-start{
+    font-weight: 500;
+}
+
+.no-wrap{
+    white-space: nowrap;
+    display: inline;
+    list-style: none;
+    
+}
