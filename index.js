@@ -1,5 +1,5 @@
 
-//----------Main Search--------------------------------------
+//---------------------Main Search--------------------------------------
 
 const main_search = document.getElementById('main_search');
 const submit_btn = document.getElementById('submit_btn');
@@ -13,11 +13,11 @@ const textInput = document.getElementById('textInput');
 const main_search_humidity = document.getElementById('main_search_humidity');
 const main_search_feels_like = document.getElementById('main_search_feels_like');
 const city_name = document.getElementById('city_name');
-const main_weather = document.getElementById('hidden');
+const main_weather = document.getElementById('hidden_block');
 
 
 
-async function result(city) {
+async function place_name(city) {
     const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
     const options = {
         method: 'GET',
@@ -32,43 +32,37 @@ async function result(city) {
         const result = await response.json();
         console.log(result);
         main_search.innerHTML = result.temp + '°C';
-        main_search_feels_like.innerHTML = 'Feels like' + '<b>' + result.feels_like +'</b>';
-        main_search_humidity.innerHTML = 'Humidity of <b>' + result.humidity + '</b>';
-        main_search_max_temp.innerHTML = 'Max Temp ' + '<b>' + result.max_temp + '</b>';
-        main_search_min_temp.innerHTML = 'Min Temp ' + '<b>' +  result.min_temp + '</b>';
+        main_search_feels_like.innerHTML = 'Feels like ' + '<b>' + result.feels_like + '°C' + '</b>';
+        main_search_humidity.innerHTML = 'Humidity of <b>' + result.humidity + '%' +'</b>';
+        main_search_max_temp.innerHTML = 'Max Temp ' + '<b>' + result.max_temp + '°C' + '</b>';
+        main_search_min_temp.innerHTML = 'Min Temp ' + '<b>' + result.min_temp + '°C' + '</b>';
         main_search_sunrise.innerHTML = 'Sunrise at ' + '<b>' + result.sunrise + '</b>';
         main_search_sunset.innerHTML = 'Sunset at ' + '<b>' + result.sunset + '</b>';
-        main_search_wind_degrees.innerHTML = 'Wind in Degrees ' + '<b>' + result.wind_degrees + '</b>';
-        main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed + '</b>';
-        city_name.innerHTML = city;
-        
-        main_weather.style.display = 'block'
+        main_search_wind_degrees.innerHTML = 'Wind in Degrees ' + '<b>' + result.wind_degrees +'°' + '</b>';
+        main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed +' m/s' + '</b>';
+        city_name.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
+
+        main_weather.style.display = 'block';
 
     }
 
     catch (error) {
-        console.error(error);
-
+        console.error('API Request Error:', error);
     }
 
 }
 
 
-submit_btn.addEventListener('click', () => {
-    result(textInput.value);
-})
+submit_btn.addEventListener('click', (e) => {
+    console.log('Button Clicked');
+    e.preventDefault();
+    place_name(textInput.value);
+});
 
 
 
 
-
-
-
-
-
-
-
-//-------------------Mumbai-----------------------------------------
+//-----------------------Dubai-----------------------------------------
 
 const mumbai_max_temp = document.getElementById('mumbai_max_temp');
 const mumbai_min_temp = document.getElementById('mumbai_min_temp');
@@ -105,7 +99,7 @@ const mumbai_pct = document.getElementById('mumbai_pct');
     ();
 
 
-//------------------------------BLR---------------------------
+//------------------------------USA----------------------------------------
 
 const bangalore_pct = document.getElementById('bangalore_pct');
 const bangalore_max_temp = document.getElementById('bangalore_max_temp');
@@ -143,7 +137,7 @@ const bangalore_min_temp = document.getElementById('bangalore_min_temp');
 
 
 
-//------------------------------Delhi---------------------------
+//------------------------------India----------------------------------------------
 
 // const delhi_pct = document.getElementById('delhi_pct');
 const delhi_max_temp = document.getElementById('delhi_max_temp');

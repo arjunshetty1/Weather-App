@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Weather GPT</a>
+            <a class="navbar-brand" href="#">Weather Global</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="https://www.windy.com/?20.266,69.223,5,m:d1haiho">Source</a>
+                        <a class="nav-link active" aria-current="page"
+                            href="https://api-ninjas.com/api/weather">Source</a>
                     </li>
 
                     <!-- <li class="nav-item dropdown">
@@ -61,7 +62,7 @@
         <main>
 
 
-            <div class="main-weather-hidden" id="hidden">
+            <div class="main-weather-hidden" id="hidden_block">
 
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm border-primary">
@@ -74,18 +75,21 @@
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li id="main_search_feels_like">10</li>
                                 <li id="main_search_max_temp">10</li>
-                                <li id="main_search_humidity">10</li>
                                 <li id="main_search_min_temp">15</li>
+                                <li id="main_search_humidity">10</li>
                                 <li id="main_search_sunrise">00</li>
                                 <li id="main_search_sunset">01</li>
                                 <li id="main_search_wind_degrees">20</li>
                                 <li id="main_search_speed">70</li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details">View More</a></button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
+                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details">View
+                                    More</a></button>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
@@ -107,7 +111,9 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
+                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                                    class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
@@ -134,7 +140,9 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
+                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                                    class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
@@ -158,7 +166,9 @@
                                         class="text-body-secondary fw-light">°C</small>
                                 </li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details-extra">View More</a></button>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
+                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                                    class="more-details-extra">View More</a></button>
                         </div>
                     </div>
                 </div>
@@ -397,7 +407,14 @@
                 </table>
             </div> -->
         </main>
-
+        <div class="container">
+            <footer class="py-3 my-4">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="https://github.com/arjunshetty1" class="nav-link px-2 text-body-secondary">By Arjun Shetty</a></li>
+                </ul>
+                <p class="text-center text-body-secondary">Made with ❤ and Rapid API</p>
+            </footer>
+        </div>
     </div>
 
 

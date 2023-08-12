@@ -7,21 +7,12 @@ font-weight: 400;
     font-weight: 500;
 }
 
-.no-wrap{
-    white-space: nowrap;
-    display: inline;
-    list-style: none;
-    
-}
-
-
 .more-details{
     font-size: 1.2rem;
     color:rgb(8, 61, 165);
     font-weight: 400;
     text-decoration: none;
 }
-
 
 .more-details:hover{
     color: white;
@@ -41,7 +32,17 @@ button:hover{
 
 }
 
-
-#hidden{
+#hidden_block{
     display: none;
+}
+
+
+.form-control{
+    width: 60rem;
+    height: 3rem;
+}
+
+
+.nav-item a:hover {
+    color: rgb(42, 131, 233) !important;
 }
