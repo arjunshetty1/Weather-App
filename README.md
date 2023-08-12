@@ -2,6 +2,7 @@
 
 Weather GPT is a web application that provides weather information for different cities using an API. It displays temperature, humidity, wind details, and more.
 
+![image](https://github.com/arjunshetty1/Weather-App/assets/97979919/73ebc937-8111-4897-b063-cb944acc785d)
 
 ## Features
 
