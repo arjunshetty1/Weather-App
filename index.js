@@ -22,7 +22,7 @@ async function place_name(city) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '12f33d9d95msh13bac54dd679c2cp151602jsn589175e76510',
+            'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
     };
@@ -74,7 +74,7 @@ const mumbai_pct = document.getElementById('mumbai_pct');
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '12f33d9d95msh13bac54dd679c2cp151602jsn589175e76510',
+            'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
     };
@@ -111,7 +111,7 @@ const bangalore_min_temp = document.getElementById('bangalore_min_temp');
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '12f33d9d95msh13bac54dd679c2cp151602jsn589175e76510',
+            'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
     };
@@ -149,7 +149,7 @@ const delhi_min_temp = document.getElementById('delhi_min_temp');
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '12f33d9d95msh13bac54dd679c2cp151602jsn589175e76510',
+            'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
     };
