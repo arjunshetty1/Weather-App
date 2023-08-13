@@ -25,4 +25,4 @@ Weather GPT is a web application that provides weather information for different
 
 1. Clone the repository
    
-   git clone https://github.com/arjunshetty1/weather-gpt.git
+   git clone https://github.com/arjunshetty1/Weather-App
