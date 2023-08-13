@@ -20,8 +20,8 @@ const main_weather = document.getElementById('hidden_block');
 async function place_name(city) {
     const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
     const options = {
-        method: 'GET',
-        headers: {
+        'method': 'GET',
+        'headers': {
             'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
             'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
@@ -172,3 +172,58 @@ const delhi_min_temp = document.getElementById('delhi_min_temp');
 }
 )
     ();
+
+
+//---------------------------Other Cities-------------------------------
+
+const cities = ["Canada", "Australia", "Singapore","Iceland","China"];
+
+cities.forEach(async (city) => {
+    const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '03b52183f2msh98e480b34bf2ddcp1c21dcjsn0cb504272488',
+            'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        }
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+
+        const cityTempElement = document.querySelectorAll('.' + city + '_pct');
+        const cityMaxTemp = document.querySelectorAll('.' + city + '_pct');
+
+
+
+ 
+        
+        cityTempElement.forEach( (pct) => {
+
+            pct.innerHTML = result.sunrise;
+
+        } );
+
+        cityMaxTemp.forEach( (max) => {
+
+            max.innerHTML = result.feels_like;
+
+        } );
+
+
+
+
+    console.log(result);
+
+
+
+
+
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+
+    
