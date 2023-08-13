@@ -33,13 +33,13 @@ async function place_name(city) {
         console.log(result);
         main_search.innerHTML = result.temp + '°C';
         main_search_feels_like.innerHTML = 'Feels like ' + '<b>' + result.feels_like + '°C' + '</b>';
-        main_search_humidity.innerHTML = 'Humidity of <b>' + result.humidity + '%' +'</b>';
+        main_search_humidity.innerHTML = 'Humidity of <b>' + result.humidity + '%' + '</b>';
         main_search_max_temp.innerHTML = 'Max Temp ' + '<b>' + result.max_temp + '°C' + '</b>';
         main_search_min_temp.innerHTML = 'Min Temp ' + '<b>' + result.min_temp + '°C' + '</b>';
         main_search_sunrise.innerHTML = 'Sunrise at ' + '<b>' + result.sunrise + '</b>';
         main_search_sunset.innerHTML = 'Sunset at ' + '<b>' + result.sunset + '</b>';
-        main_search_wind_degrees.innerHTML = 'Wind in Degrees ' + '<b>' + result.wind_degrees +'°' + '</b>';
-        main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed +' m/s' + '</b>';
+        main_search_wind_degrees.innerHTML = 'Wind in Degrees ' + '<b>' + result.wind_degrees + '°' + '</b>';
+        main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed + ' m/s' + '</b>';
         city_name.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
 
         main_weather.style.display = 'block';
@@ -176,7 +176,8 @@ const delhi_min_temp = document.getElementById('delhi_min_temp');
 
 //---------------------------Other Cities-------------------------------
 
-const cities = ["Canada", "Australia", "Singapore","Iceland","China"];
+
+const cities = ["Canada", "Australia", "Singapore", "Iceland", "China"];
 
 cities.forEach(async (city) => {
     const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
@@ -193,37 +194,54 @@ cities.forEach(async (city) => {
         const result = await response.json();
 
         const cityTempElement = document.querySelectorAll('.' + city + '_pct');
-        const cityMaxTemp = document.querySelectorAll('.' + city + '_pct');
-
-
-
- 
-        
-        cityTempElement.forEach( (pct) => {
-
-            pct.innerHTML = result.sunrise;
-
-        } );
-
-        cityMaxTemp.forEach( (max) => {
-
-            max.innerHTML = result.feels_like;
-
-        } );
+        const cityMaxTemp = document.querySelectorAll('.' + city + '_feels');
+        const cityHumidity = document.querySelectorAll('.' + city + '_humidity');
+        const cityMax = document.querySelectorAll('.' + city + '_max');
+        const cityTemp = document.querySelectorAll('.' + city + '_temp');
 
 
 
 
-    console.log(result);
+        cityTempElement.forEach((pct) => {
+
+            pct.innerHTML = result.cloud_pct;
+
+        });
+
+        cityMaxTemp.forEach((feels) => {
+
+            feels.innerHTML = result.feels_like;
+
+        });
+
+
+        cityHumidity.forEach((hum) => {
+
+            hum.innerHTML = result.humidity;
+        });
+
+
+        cityMax.forEach((m) => {
+
+            m.innerHTML = result.max_temp;
+        })
+
+
+        cityTemp.forEach((t) => {
+
+            t.innerHTML = result.temp;
+        })
 
 
 
-
-
-    } catch (error) {
+        console.log(result);
+    
+    } 
+    
+    catch (error) {
         console.error(error);
     }
+    
 });
 
 
-    

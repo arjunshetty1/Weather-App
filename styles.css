@@ -1,38 +1,40 @@
-.th-content{
-font-size: 15px;
-font-weight: 400;
+.th-content {
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.text-start{
+.text-start {
     font-weight: 500;
 }
 
-.more-details{
-    font-size: 1.2rem;
-    color:rgb(8, 61, 165);
-    font-weight: 400;
-    text-decoration: none;
-}
-
-.more-details:hover{
-    color: white;
-}
-.more-details-extra{
+.more-details {
     font-size: 1.2rem;
     color: rgb(8, 61, 165);
     font-weight: 400;
     text-decoration: none;
 }
-.more-details-extra:hover{
+
+.more-details:hover {
     color: white;
 }
 
-button:hover{
+.more-details-extra {
+    font-size: 1.2rem;
+    color: rgb(8, 61, 165);
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.more-details-extra:hover {
+    color: white;
+}
+
+button:hover {
     color: white;
 
 }
 
-#hidden_block{
+#hidden_block {
     display: none;
 }
 
