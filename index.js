@@ -14,10 +14,16 @@ const main_search_humidity = document.getElementById('main_search_humidity');
 const main_search_feels_like = document.getElementById('main_search_feels_like');
 const city_name = document.getElementById('city_name');
 const main_weather = document.getElementById('hidden_block');
+const spinner = document.getElementById('spinner');
 
 
 
 async function place_name(city) {
+
+
+    spinner.style.display = 'block';
+
+
     const url = 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city;
     const options = {
         'method': 'GET',
@@ -28,6 +34,9 @@ async function place_name(city) {
     };
 
     try {
+
+        main_weather.style.display = 'block';
+
         const response = await fetch(url, options);
         const result = await response.json();
         console.log(result);
@@ -42,12 +51,17 @@ async function place_name(city) {
         main_search_speed.innerHTML = 'Wind Speed of ' + '<b>' + result.wind_speed + ' m/s' + '</b>';
         city_name.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
 
-        main_weather.style.display = 'block';
+
 
     }
 
     catch (error) {
         console.error('API Request Error:', error);
+        main_weather.style.display = 'block';
+    }
+
+    finally {
+        spinner.style.display = 'none';
     }
 
 }
@@ -235,13 +249,13 @@ cities.forEach(async (city) => {
 
 
         console.log(result);
-    
-    } 
-    
+
+    }
+
     catch (error) {
         console.error(error);
     }
-    
+
 });
 
 

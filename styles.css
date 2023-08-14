@@ -42,3 +42,24 @@ button:hover {
     color: rgb(42, 131, 233) !important;
 
 }
+
+
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #333;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    top: 14rem;
+   /* background-color:rgb(28, 113, 192); */
+    position: absolute;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    display: none; /* Initially hidden */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
