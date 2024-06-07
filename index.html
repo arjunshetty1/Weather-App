@@ -1,332 +1,417 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Weather Info</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-
+  <body>
     <div id="spinner" class="spinner"></div>
 
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Weather Global</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="https://api-ninjas.com/api/weather">Source</a>
-                    </li>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Weather Global</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="https://api-ninjas.com/api/weather"
+                >Source</a
+              >
+            </li>
 
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Top Cities
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Bangalore</a></li>
-                            <li><a class="dropdown-item" href="#">Delhi</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Mumbai</a></li>
-                        </ul>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Docs</a>
-                    </li>
-                </ul>
-
-            </div>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Docs</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-
-    <br>
-    <br>
-
+    <br />
+    <br />
 
     <div class="container">
+      <main>
+        <form class="d-flex" role="search">
+          <input
+            class="form-control me-2"
+            id="textInput"
+            type="search"
+            placeholder="Search Places"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" id="submit_btn" type="submit">
+            Search
+          </button>
+        </form>
 
-        <main>
+        <br />
+        <br />
 
-
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" id="textInput" type="search" placeholder="Search Places"
-                    aria-label="Search">
-                <button class="btn btn-outline-success" id="submit_btn" type="submit">Search</button>
-            </form>
-
-            <br>
-            <br>
-
-
-            <div class="main-weather-hidden" id="hidden_block">
-
-                <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm border-primary">
-                        <div class="card-header py-3 text-bg-primary border-primary">
-                            <h4 class="my-0 fw-normal" id="city_name">Details</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title" id="main_search">Loading<small
-                                    class="text-body-secondary fw-light">°C</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li id="main_search_feels_like">10</li>
-                                <li id="main_search_max_temp">10</li>
-                                <li id="main_search_min_temp">15</li>
-                                <li id="main_search_humidity">10</li>
-                                <li id="main_search_sunrise">00</li>
-                                <li id="main_search_sunset">01</li>
-                                <li id="main_search_wind_degrees">20</li>
-                                <li id="main_search_speed">70</li>
-                            </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
-                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho" class="more-details">View
-                                    More</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-                <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">Dubai</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"><span id="mumbai_pct">Loading</span><small
-                                    class="text-body-secondary fw-light">°C</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="no-wrap">
-                                    <p>Max Temperature</p><span id="mumbai_max_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                                <br>
-                                <br>
-                                <li>
-                                    <p>Min Temperature</p><span id="mumbai_min_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                            </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
-                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
-                                    class="more-details-extra">View More</a></button>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">USA</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"><span id="bangalore_pct">Loading</span><small
-                                    class="text-body-secondary fw-light">°C</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="no-wrap">
-                                    <p>Max Temperature</p><span id="bangalore_max_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                                <br>
-                                <br>
-                                <li>
-                                    <p>Min Temperature</p><span id="bangalore_min_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                            </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
-                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
-                                    class="more-details-extra">View More</a></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card mb-4 rounded-3 shadow-sm">
-                        <div class="card-header py-3">
-                            <h4 class="my-0 fw-normal">India</h4>
-                        </div>
-                        <div class="card-body">
-                            <h1 class="card-title pricing-card-title"><span id="delhi_pct">Loading</span><small
-                                    class="text-body-secondary fw-light">°C</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li class="no-wrap">
-                                    <p>Max Temperature</p><span id="delhi_max_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                                <br>
-                                <br>
-                                <li>
-                                    <p>Min Temperature</p><span id="delhi_min_temp">Loading</span><small
-                                        class="text-body-secondary fw-light">°C</small>
-                                </li>
-                            </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a
-                                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
-                                    class="more-details-extra">View More</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="display-6 text-center mb-4">Other Countries</h2>
-            <br>
-
-            <div class="table-responsive">
-                <table class="table text-center">
-                    <thead>
-                        <tr>
-                            <th class="th-content" style="width: 20%;"></th>
-                            <th class="th-content" style="width: 20%;">Cloud Pct</th>
-                            <th class="th-content" style="width: 20%;">Feels&nbsp;like</th>
-                            <th class="th-content" style="width: 20%;">Humidity</th>
-                            <th class="th-content" style="width: 20%;">Max&nbsp;Temp</th>
-                            <th class="th-content" style="width: 2%;">Temp</th>
-                        </tr>
-                    </thead>
-
-                    <!-- -------------------------------------------Other Cities------------------------------------------------------- -->
-
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="text-start">Canada</th>
-                            <td class="Canada_pct">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Canada_feels">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Canada_humidity">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Canada_max">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Canada_temp">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Australia</th>
-                            <td class="Australia_pct">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Australia_feels">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Australia_humidity">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Australia_max">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Australia_temp">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-
-                        </tr>
-                    </tbody>
-
-                    <tbody>
-                        <tr>
-                            <th scope="row" class="text-start">Singapore</th>
-                            <td class="Singapore_pct">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Singapore_feels">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Singapore_humidity">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Singapore_max">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Singapore_temp">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-start">Iceland</th>
-                            <td class="Iceland_pct">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Iceland_feels">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Iceland_humidity">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Canada_max">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="Iceland_temp">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-
-                        </tr>
-
-
-                        <tr>
-                            <th scope="row" class="text-start">China</th>
-                            <td class="China_pct">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="China_feels">32<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="China_humidity">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="China_max">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-                            <td class="China_temp">00<svg class="bi" width="24" height="24">
-                                    <use xlink:href="#check"></use>
-                                </svg></td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- --------------------------------------Footer----------------------------------- -->
-
-
-        </main>
-        <div class="container">
-            <footer class="py-3 my-4">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="https://github.com/arjunshetty1"
-                            class="nav-link px-2 text-body-secondary">By Arjun Shetty</a></li>
+        <div class="main-weather-hidden" id="hidden_block">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal" id="city_name">Details</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title" id="main_search">
+                  Loading<small class="text-body-secondary fw-light">°C</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li id="main_search_feels_like">10</li>
+                  <li id="main_search_max_temp">10</li>
+                  <li id="main_search_min_temp">15</li>
+                  <li id="main_search_humidity">10</li>
+                  <li id="main_search_sunrise">00</li>
+                  <li id="main_search_sunset">01</li>
+                  <li id="main_search_wind_degrees">20</li>
+                  <li id="main_search_speed">70</li>
                 </ul>
-                <p class="text-center text-body-secondary">Made with ❤ and Rapid API</p>
-            </footer>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  <a
+                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                    class="more-details"
+                    >View More</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Dubai</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="mumbai_pct">Loading</span
+                  ><small class="text-body-secondary fw-light">°C</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="no-wrap">
+                    <p>Max Temperature</p>
+                    <span id="mumbai_max_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                  <br />
+                  <br />
+                  <li>
+                    <p>Min Temperature</p>
+                    <span id="mumbai_min_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  <a
+                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                    class="more-details-extra"
+                    >View More</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">USA</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="bangalore_pct">Loading</span
+                  ><small class="text-body-secondary fw-light">°C</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="no-wrap">
+                    <p>Max Temperature</p>
+                    <span id="bangalore_max_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                  <br />
+                  <br />
+                  <li>
+                    <p>Min Temperature</p>
+                    <span id="bangalore_min_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  <a
+                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                    class="more-details-extra"
+                    >View More</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">India</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">
+                  <span id="delhi_pct">Loading</span
+                  ><small class="text-body-secondary fw-light">°C</small>
+                </h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li class="no-wrap">
+                    <p>Max Temperature</p>
+                    <span id="delhi_max_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                  <br />
+                  <br />
+                  <li>
+                    <p>Min Temperature</p>
+                    <span id="delhi_min_temp">Loading</span
+                    ><small class="text-body-secondary fw-light">°C</small>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  class="w-100 btn btn-lg btn-outline-primary"
+                >
+                  <a
+                    href="https://www.windy.com/?20.266,69.223,5,m:d1haiho"
+                    class="more-details-extra"
+                    >View More</a
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="display-6 text-center mb-4">Other Countries</h2>
+        <br />
+
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th class="th-content" style="width: 20%"></th>
+                <th class="th-content" style="width: 20%">Cloud Pct</th>
+                <th class="th-content" style="width: 20%">Feels&nbsp;like</th>
+                <th class="th-content" style="width: 20%">Humidity</th>
+                <th class="th-content" style="width: 20%">Max&nbsp;Temp</th>
+                <th class="th-content" style="width: 2%">Temp</th>
+              </tr>
+            </thead>
+
+            <!-- -------------------------------------------Other Cities------------------------------------------------------- -->
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Canada</th>
+                <td class="Canada_pct">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Canada_feels">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Canada_humidity">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Canada_max">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Canada_temp">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Australia</th>
+                <td class="Australia_pct">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Australia_feels">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Australia_humidity">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Australia_max">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Australia_temp">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Singapore</th>
+                <td class="Singapore_pct">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Singapore_feels">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Singapore_humidity">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Singapore_max">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Singapore_temp">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Iceland</th>
+                <td class="Iceland_pct">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Iceland_feels">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Iceland_humidity">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Canada_max">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="Iceland_temp">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+
+              <tr>
+                <th scope="row" class="text-start">China</th>
+                <td class="China_pct">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="China_feels">
+                  32<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="China_humidity">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="China_max">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+                <td class="China_temp">
+                  00<svg class="bi" width="24" height="24">
+                    <use xlink:href="#check"></use>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- --------------------------------------Footer----------------------------------- -->
+      </main>
+      <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item">
+              <a
+                href="https://github.com/arjunshetty1"
+                class="nav-link px-2 text-body-secondary"
+                >By Arjun Shetty</a
+              >
+            </li>
+          </ul>
+          <p class="text-center text-body-secondary">
+            Made with ❤ and Rapid API
+          </p>
+        </footer>
+      </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
